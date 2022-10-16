@@ -5,7 +5,7 @@ export default function Header() {
     <div className='header'>
         <div className='container'>
             <div className='row v-center space-between'>
-                <div classname='logo'>
+                <div className='logo'>
                     <a href="/">AGENCY.</a>
                 </div>
                 <div className='nav'>

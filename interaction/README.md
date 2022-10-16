@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Bugs
+Experienced some bugs with the text animation, gsap .from() was not working after reload turns out react 18^ runs in strict mode locally by default which causes the useEffect to get called twice..which makes sense why the animation works only on first load. .from() use the CURRENT value as the destination and it renders immediately the value you set in the tween, so when it's called the first time it'd work great but if you call it twice, the CURRENT value will be the one that was immediately rendered the first time, thus nothing will happen.
+
+## Solution
+Go to your index.js file and remove the <React.StrictMode> wrapper around your rendered Root component. OR you can add some conditional logic to your useEffect() call so that it only runs ONCE.
